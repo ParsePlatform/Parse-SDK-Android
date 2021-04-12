@@ -38,11 +38,26 @@ class ParseRESTObjectCommand extends ParseRESTCommand {
                     operations,
                     sessionToken);
         } else {
-            return ParseRESTObjectCommand.updateObjectCommand(
-                    state.objectId(),
-                    state.className(),
-                    operations,
-                    sessionToken);
+            if(Parse.isAllowCustomObjectId()){
+                if(state.createdAt() == -1){
+                    return ParseRESTObjectCommand.createObjectCommand(
+                            state.className(),
+                            operations,
+                            sessionToken);
+                }else{
+                    return ParseRESTObjectCommand.updateObjectCommand(
+                            state.objectId(),
+                            state.className(),
+                            operations,
+                            sessionToken);
+                }
+            }else{
+                return ParseRESTObjectCommand.updateObjectCommand(
+                        state.objectId(),
+                        state.className(),
+                        operations,
+                        sessionToken);
+            }
         }
     }
 
