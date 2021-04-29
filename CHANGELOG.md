@@ -1,6 +1,15 @@
 ## Changelog
 
 ### master
+> __BREAKING CHANGES__
+>
+> - Removed the `gcm` module since GCM is no longer supported by Google (#1091)
+
+### 1.26.0
+- fix TypeCastException when unlinking google account (#1076)
+- feature: KTX property delegation custom labels (#1066)
+- feature: Coroutine Task Wrapper (#1064)
+- Rename functions that cause shadow members (#1054)
 
 ### 1.25.0
 > __BREAKING CHANGES__
