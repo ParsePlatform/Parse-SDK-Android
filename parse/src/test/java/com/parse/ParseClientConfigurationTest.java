@@ -11,13 +11,12 @@ package com.parse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = TestHelper.ROBOLECTRIC_SDK_VERSION)
 public class ParseClientConfigurationTest {
 
     @Test
@@ -31,7 +30,7 @@ public class ParseClientConfigurationTest {
         assertNull(configuration.context);
         assertEquals(configuration.applicationId, "foo");
         assertEquals(configuration.clientKey, "bar");
-        assertEquals(configuration.localDataStoreEnabled, true);
+        assertTrue(configuration.localDataStoreEnabled);
     }
 
     @Test
